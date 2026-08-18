@@ -1,0 +1,4282 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap');
+
+/* =========================================================
+   RESET / BASE
+========================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif;
+  color: #1e2a35;
+  background: #ffffff;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================================================
+   SHARED / UTILITY
+========================================================== */
+
+:root {
+  --color-blue: #4d9fe0;
+  --color-blue-dark: #3c8bcb;
+  --color-blue-light: #eaf4fb;
+  --color-text-dark: #1e2a35;
+  --color-text-body: #4a5560;
+  --color-text-muted: #8b98a3;
+  --color-purple: #8b7cd8;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.94;
+}
+
+.btn-blue {
+  background: var(--color-blue);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  padding: 13px 24px;
+}
+
+/* Purple header button + full nav are not present in the reference
+   screenshot for this section, so they're hidden for now. Remove
+   these two rules once later screenshots confirm they should show. */
+.header-buttons .btn-purple,
+.main-nav,
+.hero-top-button {
+  display: none;
+}
+
+/* Placeholder image treatment until real photography is dropped in */
+.image-placeholder {
+  background: linear-gradient(135deg, #dce8f0, #eef3f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9fb0bd;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* =========================================================
+   HEADER
+========================================================== */
+
+.site-header {
+  background: #ffffff;
+  padding: 22px 48px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+}
+
+.logo-main-placeholder {
+  background: linear-gradient(135deg, #dce8f0, #eef3f6);
+  color: #9fb0bd;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-jp {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: #18a2ac;
+  white-space: nowrap;
+}
+
+.logo-sub {
+  flex-basis: 100%;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: #9aa7b1;
+  margin-top: -2px;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================== */
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 38%,
+    rgba(255, 255, 255, 0.88) 48%,
+    rgba(255, 255, 255, 0.35) 60%,
+    rgba(255, 255, 255, 0) 72%
+  );
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 56px 48px 0;
+  min-height: 660px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-content {
+  max-width: 600px;
+  padding-top: 36px;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  white-space: nowrap;
+  background: var(--color-blue-light);
+  color: var(--color-blue-dark);
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  padding: 11px 20px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+
+.hero-content h1 {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 500;
+  color: #323b4d;
+  margin-bottom: 26px;
+  letter-spacing: 0.05em;
+}
+
+.hero-content h1 .h1-lead {
+  display: inline-block;
+  font-size: 44px;
+  color: #486e7f;
+  margin-bottom: 8px;
+}
+
+.hero-description {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: #323b4d;
+  margin-bottom: 30px;
+}
+
+.hero-cta {
+  background: var(--color-blue);
+  color: #fff;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  padding: 17px 34px;
+  box-shadow: 0 10px 24px rgba(77, 159, 224, 0.35);
+}
+
+.hero-note {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: #486e7f;
+  margin-top: 16px;
+}
+
+/* ---- hero stat circles ---- */
+
+.hero-stats {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 11px;
+  margin-top: 24px;
+}
+
+.hero-stat {
+  width: 162px;
+  height: 162px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(163, 196, 209, 0.55);
+  box-shadow: 0 16px 34px rgba(20, 40, 60, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 12px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.stat-label {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: #8fa9ba;
+  margin-bottom: 9px;
+  white-space: nowrap;
+}
+
+.hero-stat strong {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--color-text-dark);
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.hero-stat strong em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--color-blue);
+}
+
+/* =========================================================
+   HERO FEATURES BAR
+========================================================== */
+
+.hero-features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  background: #ffffff;
+  padding: 30px 48px;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.feature-label {
+  flex-shrink: 0;
+  background: var(--color-blue);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 9px 15px;
+  border-radius: 6px;
+}
+
+.feature-item strong {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  color: var(--color-text-dark);
+}
+
+/* =========================================================
+   RESPONSIVE (baseline for this section only)
+========================================================== */
+
+@media (max-width: 900px) {
+  .hero-overlay {
+    padding: 40px 24px 0;
+  }
+  .hero-content h1 {
+    font-size: 26px;
+  }
+  .hero-content h1 .h1-lead {
+    font-size: 23px;
+  }
+  .hero-eyebrow {
+    white-space: normal;
+  }
+  .header-inner {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  .hero-stats {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .hero-stat {
+    width: 138px;
+    height: 138px;
+  }
+  .hero-stat:first-child strong em {
+    font-size: 19px;
+  }
+  .hero-features {
+    gap: 28px;
+    justify-content: flex-start;
+  }
+}
+
+/* =========================================================
+   SECTION 02 — WHO IT'S FOR
+   ========================================================= */
+
+#service {
+  width: 100%;
+  min-height: 1207.5px;
+  padding: 73.5px 49px 84px;
+  background: #eef4fb;
+}
+
+#service > .section-heading,
+#service > .circle-cards,
+#service > .check-list-box,
+#service > .section-bottom-text {
+  width: min(100%, 1365px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------------------------------------------------------
+   Section heading
+--------------------------------------------------------- */
+
+#service .section-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+#service .section-label {
+  margin: 0 0 16px;
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+}
+
+#service .section-heading h2 {
+  margin: 0;
+  color: #323b4d;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+}
+
+#service .section-heading > p:last-child {
+  margin: 17.5px auto 0;
+  color: #486e7f;
+  font-size: 17.5px;
+  line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   Three circular image placeholders
+--------------------------------------------------------- */
+
+#service .circle-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  gap: 52.5px;
+  margin-top: 24.5px;
+  margin-bottom: 38.5px;
+}
+
+#service .circle-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#service .circle-image {
+  width: 339.5px;
+  height: 339.5px;
+  flex: 0 0 339.5px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dce8f0,
+      #eef3f6
+    );
+
+  color: #9fb0bd;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+#service .circle-card-label {
+  width: max-content;
+  max-width: 100%;
+  margin-top: -2px;
+  padding: 14px 31.5px;
+
+  border-radius: 1748px;
+  background: #7d93c7;
+
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+
+/* ---------------------------------------------------------
+   White checklist box
+--------------------------------------------------------- */
+
+#service .check-list-box {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  column-gap: 84px;
+  row-gap: 21px;
+
+  padding: 35px 44px;
+
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+#service .check-column {
+  min-width: 0;
+}
+
+#service .check-column p {
+  position: relative;
+
+  margin: 0;
+  padding-left: 33px;
+
+  color: #486e7f;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+#service .check-column p + p {
+  margin-top: 17.5px;
+}
+
+/* Blue checkmark */
+
+#service .check-column p::first-letter {
+  color: #18a2ac;
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   Bottom explanatory text
+--------------------------------------------------------- */
+
+#service .section-bottom-text {
+  margin-top: 44px;
+  text-align: center;
+}
+
+#service .section-bottom-text h3 {
+  margin: 0 0 14px;
+
+  color: #3d4857;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+#service .section-bottom-text p {
+  margin: 0;
+
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+#service .section-bottom-text p + p {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   SECTION 02 — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1365px) {
+
+  #service {
+    padding: 91px 35px 77px;
+  }
+
+  #service .section-heading h2 {
+    font-size: 42px;
+  }
+
+  #service .circle-cards {
+    gap: 31.5px;
+  }
+
+  #service .circle-image {
+    width: min(27vw, 306px);
+    height: min(27vw, 306px);
+    flex-basis: min(27vw, 306px);
+  }
+
+  #service .circle-card-label {
+    padding: 12px 21px;
+    font-size: 19px;
+  }
+
+  #service .check-list-box {
+    column-gap: 44px;
+    padding: 31.5px 35px;
+  }
+}
+
+
+@media (max-width: 980px) {
+
+  #service {
+    padding: 80.5px 28px 73.5px;
+  }
+
+  #service .section-heading h2 {
+    font-size: 37px;
+  }
+
+  #service .section-heading > p:last-child {
+    font-size: 16px;
+  }
+
+  #service .circle-cards {
+    gap: 14px;
+    margin-top: 31.5px;
+  }
+
+  #service .circle-image {
+    width: calc((100vw - 94.5px) / 3);
+    height: calc((100vw - 94.5px) / 3);
+    flex-basis: calc((100vw - 94.5px) / 3);
+  }
+
+  #service .circle-card-label {
+    width: 100%;
+    padding: 12px 7px;
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  #service .check-list-box {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    padding: 30px 30px;
+  }
+
+  #service .check-column p {
+    font-size: 16px;
+  }
+
+  #service .check-column p + p {
+    margin-top: 12px;
+  }
+
+  #service .section-bottom-text {
+    margin-top: 38.5px;
+  }
+
+  #service .section-bottom-text h3 {
+    font-size: 19px;
+  }
+
+  #service .section-bottom-text p {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   SECTION 03 — ABOUT / 8 AREAS
+   ========================================================= */
+
+#about {
+  width: 100%;
+  min-height: 1120px;
+  padding: 77px 49px 105px;
+  background: #f4f7fc;
+}
+
+
+/* ---------------------------------------------------------
+   SECTION HEADING
+--------------------------------------------------------- */
+
+#about > .section-heading {
+  width: 100%;
+  max-width: 1575px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+#about .section-label {
+  margin: 0 0 17.5px;
+
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+}
+
+#about .section-heading h2 {
+  margin: 0;
+
+  color: #323b4d;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+#about .section-heading > p:last-child {
+  margin: 19px auto 0;
+
+  color: #486e7f;
+  font-size: 17.5px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   8-CARD GRID
+--------------------------------------------------------- */
+
+#about .about-grid {
+  width: min(100%, 1267px);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  column-gap: 28px;
+  row-gap: 28px;
+}
+
+
+/* ---------------------------------------------------------
+   INDIVIDUAL CARDS
+--------------------------------------------------------- */
+
+#about .about-card {
+  min-width: 0;
+  min-height: 352px;
+
+  padding: 30px 24.5px 26px;
+
+  background: #ffffff;
+  border: 2px solid #dce4ed;
+  border-radius: 10.5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   IMAGE / ICON PLACEHOLDER
+--------------------------------------------------------- */
+
+#about .about-image-placeholder {
+  width: 126px;
+  height: 126px;
+  min-height: 126px;
+
+  margin: 0 auto 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d8edf5 0%,
+      #b9dfed 100%
+    );
+
+  border-radius: 14px;
+
+  color: #18a2ac;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  overflow: hidden;
+}
+
+
+/*
+   Keep the placeholder visually close to the icon area
+   without attempting to recreate the original artwork.
+*/
+#about .about-image-placeholder span {
+  display: block;
+}
+
+
+/* ---------------------------------------------------------
+   CARD TITLE
+--------------------------------------------------------- */
+
+#about .about-card h3 {
+  width: 100%;
+  margin: 0 0 12px;
+
+  color: #32a4ce;
+
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CARD BULLET LIST
+--------------------------------------------------------- */
+
+#about .about-card ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  text-align: left;
+}
+
+#about .about-card li {
+  position: relative;
+
+  margin: 0;
+  padding-left: 17.5px;
+
+  color: #344e63;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0;
+}
+
+#about .about-card li + li {
+  margin-top: 3.5px;
+}
+
+#about .about-card li::before {
+  content: "・";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: #315e78;
+
+  font-size: 14px;
+  line-height: inherit;
+}
+
+
+/* =========================================================
+   SECTION 03 — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1575px) {
+
+  #about {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  #about .about-grid {
+    width: min(100%, 1267px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 17.5px;
+  }
+
+  #about .about-card {
+    padding-left: 17.5px;
+    padding-right: 17.5px;
+  }
+
+  #about .about-card h3 {
+    font-size: 19px;
+  }
+
+  #about .about-card li {
+    font-size: 15px;
+  }
+}
+
+
+@media (max-width: 1225px) {
+
+  #about {
+    min-height: auto;
+    padding-top: 84px;
+    padding-bottom: 87.5px;
+  }
+
+  #about .section-heading h2 {
+    font-size: 42px;
+  }
+
+  #about .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 875px);
+
+    column-gap: 24.5px;
+    row-gap: 24.5px;
+  }
+
+  #about .about-card {
+    min-height: 350px;
+    padding: 28px 24.5px;
+  }
+
+  #about .about-image-placeholder {
+    width: 122.5px;
+    height: 122.5px;
+    min-height: 122.5px;
+  }
+
+  #about .about-card h3 {
+    font-size: 21px;
+  }
+
+  #about .about-card li {
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 840px) {
+
+  #about {
+    padding: 73.5px 28px 77px;
+  }
+
+  #about .section-label {
+    font-size: 19px;
+  }
+
+  #about .section-heading h2 {
+    font-size: 37px;
+    line-height: 1.55;
+  }
+
+  #about .section-heading > p:last-child {
+    font-size: 16px;
+  }
+
+  #about .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17.5px;
+  }
+
+  #about .about-card {
+    min-height: 332.5px;
+    padding: 23px 16px 21px;
+  }
+
+  #about .about-image-placeholder {
+    width: 108.5px;
+    height: 108.5px;
+    min-height: 108.5px;
+    margin-bottom: 14px;
+  }
+
+  #about .about-card h3 {
+    font-size: 17.5px;
+    line-height: 1.45;
+  }
+
+  #about .about-card li {
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+/* =========================================================
+   SECTION 04 — WHY IT DOESN'T STICK
+   ========================================================= */
+
+.why-section {
+  width: 100%;
+  min-height: 892.5px;
+  padding: 98px 49px 91px;
+  background: #eef4fb;
+}
+
+
+/* ---------------------------------------------------------
+   SECTION HEADING
+--------------------------------------------------------- */
+
+.why-section > .section-heading {
+  width: min(100%, 1225px);
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.why-section .section-label {
+  margin: 0 0 17.5px;
+
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+}
+
+.why-section .section-heading h2 {
+  margin: 0;
+
+  color: #323b4d;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.why-section .section-heading > p:last-child {
+  margin: 17.5px auto 0;
+
+  color: #486e7f;
+  font-size: 17.5px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   TWO-SIDE COMPARISON
+--------------------------------------------------------- */
+
+.why-section .why-comparison {
+  width: min(100%, 1277.5px);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background: #ffffff;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   INDIVIDUAL SIDES
+--------------------------------------------------------- */
+
+.why-section .why-side {
+  position: relative;
+
+  min-width: 0;
+  min-height: 346.5px;
+
+  padding: 33px 44px 31.5px;
+}
+
+.why-section .why-left {
+  background: #dfeaf5;
+}
+
+.why-section .why-right {
+  background: #ffffff;
+}
+
+
+/* ---------------------------------------------------------
+   SIDE HEADINGS
+--------------------------------------------------------- */
+
+.why-section .why-side h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+  padding-right: 206.5px;
+
+  color: #34485b;
+
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.015em;
+}
+
+.why-section .why-left h3 span {
+  color: #18a2ac;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.why-section .why-right h3 {
+  color: #18a2ac;
+  font-size: 24.5px;
+  font-weight: 500;
+}
+
+.why-section .why-right h3 span {
+  color: #18a2ac;
+
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.why-section .why-right h3::first-letter {
+  color: #18a2ac;
+}
+
+
+/* ---------------------------------------------------------
+   ILLUSTRATION PLACEHOLDERS
+--------------------------------------------------------- */
+
+.why-section .small-illustration {
+  position: absolute;
+
+  top: 17.5px;
+  right: 33px;
+
+  width: 189px;
+  height: 126px;
+  min-height: 126px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d9ebf2 0%,
+      #edf5f8 100%
+    );
+
+  border-radius: 14px;
+
+  color: #8ba6b4;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+
+/*
+   The right illustration sits slightly higher and farther
+   toward the right, matching the supplied reference.
+*/
+
+.why-section .why-right .small-illustration {
+  top: 14px;
+  right: 31.5px;
+}
+
+
+/* ---------------------------------------------------------
+   COMPARISON LISTS
+--------------------------------------------------------- */
+
+.why-section .why-side ul {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  margin: 28px 0 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.why-section .why-left ul {
+  margin-top: 28px;
+}
+
+.why-section .why-right ul {
+  margin-top: 24.5px;
+}
+
+.why-section .why-side li {
+  position: relative;
+
+  margin: 0;
+  padding-left: 24.5px;
+
+  color: #405466;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+
+.why-section .why-side li + li {
+  margin-top: 9px;
+}
+
+
+/* Left side uses muted dash marks */
+
+.why-section .why-left li::before {
+  content: "—";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: #486e7f;
+
+  font-size: 15px;
+}
+
+
+/* Right side uses blue checkmarks */
+
+.why-section .why-right li::before {
+  content: "✓";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: #18a2ac;
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM STATEMENT
+--------------------------------------------------------- */
+
+.why-section .why-bottom {
+  width: max-content;
+  max-width: 100%;
+
+  margin: 40px auto 0;
+
+  color: #33445a;
+
+  font-size: 31.5px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+.why-section .why-bottom strong {
+  font-weight: 500;
+}
+
+.why-section .why-bottom em {
+  color: #18a2ac;
+  font-style: normal;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   SECTION 04 — RESPONSIVE
+========================================================= */
+
+@media (max-width: 1400px) {
+
+  .why-section {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .why-section .why-comparison {
+    width: min(100%, 1277.5px);
+  }
+
+  .why-section .why-side {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .why-section .small-illustration {
+    right: 21px;
+    width: 157.5px;
+  }
+
+  .why-section .why-right h3 {
+    font-size: 24.5px;
+  }
+
+  .why-section .why-right h3 span {
+    font-size: 35px;
+  }
+}
+
+
+@media (max-width: 1137.5px) {
+
+  .why-section {
+    padding-top: 84px;
+    padding-bottom: 79px;
+  }
+
+  .why-section .section-heading h2 {
+    font-size: 38.5px;
+  }
+
+  .why-section .why-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .why-section .why-side {
+    min-height: 359px;
+  }
+
+  .why-section .why-left {
+    border-bottom: 2px solid #d7e1ea;
+  }
+
+  .why-section .small-illustration {
+    width: 184px;
+    height: 126px;
+    min-height: 126px;
+  }
+
+  .why-section .why-side li {
+    font-size: 16px;
+  }
+
+  .why-section .why-bottom {
+    font-size: 30px;
+  }
+}
+
+
+@media (max-width: 840px) {
+
+  .why-section {
+    padding: 73.5px 28px 73.5px;
+  }
+
+  .why-section .section-label {
+    font-size: 19px;
+  }
+
+  .why-section .section-heading h2 {
+    font-size: 35px;
+    line-height: 1.55;
+  }
+
+  .why-section .section-heading > p:last-child {
+    font-size: 16px;
+  }
+
+  .why-section .why-side {
+    min-height: 376px;
+    padding: 30px 30px;
+  }
+
+  .why-section .why-side h3 {
+    font-size: 21px;
+  }
+
+  .why-section .why-left h3 span {
+    font-size: 28px;
+  }
+
+  .why-section .why-right h3 {
+    font-size: 23px;
+  }
+
+  .why-section .why-right h3 span {
+    font-size: 33px;
+  }
+
+  .why-section .small-illustration {
+    width: 154px;
+    height: 114px;
+    min-height: 114px;
+    right: 21px;
+  }
+
+  .why-section .why-side ul {
+    margin-top: 31.5px;
+  }
+
+  .why-section .why-side li {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .why-section .why-bottom {
+    width: 100%;
+    font-size: 28px;
+  }
+}
+
+/* =========================================================
+   SECTION 5 — COACHING OR COUNSELING
+   ========================================================= */
+
+.counseling-section {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 84px 49px 73.5px;
+
+  background: #f2f6fc;
+
+  color: #323b4d;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.counseling-section .section-heading {
+  width: 100%;
+  max-width: 1330px;
+
+  margin: 0 auto 44px;
+
+  text-align: center;
+}
+
+.counseling-section .section-label {
+  margin: 0 0 17.5px;
+
+  color: #18a2ac;
+
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+.counseling-section .section-heading h2 {
+  margin: 0;
+
+  color: #323b4d;
+
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.025em;
+}
+
+.counseling-section .section-heading > p:last-child {
+  margin: 16px 0 0;
+
+  color: #687384;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SUPPORT / COUNSELING FLOW
+   ========================================================= */
+
+.counseling-section .support-flow {
+  position: relative;
+
+  width: 100%;
+  max-width: 1120px;
+  height: 346.5px;
+
+  margin: 0 auto;
+
+  padding: 72px 35px 75px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    minmax(0, 1.85fr);
+
+  column-gap: 10.5px;
+
+  align-items: start;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 2px solid #dce4ed;
+  border-radius: 12px;
+}
+
+
+/* =========================================================
+   STANDARD SUPPORT BOXES
+   ========================================================= */
+
+.counseling-section .support-box {
+  min-width: 0;
+  height: 94.5px;
+
+  padding: 14px 10.5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  background: #edf2f8;
+
+  text-align: center;
+}
+
+.counseling-section .support-box > strong {
+  display: block;
+
+  color: #354256;
+
+  font-size: 17.5px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.counseling-section .support-box > small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #486e7f;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   KIMOCHI COACHING BOX
+   ========================================================= */
+
+.counseling-section .support-highlight {
+  position: relative;
+
+  height: 107px;
+
+  margin-top: -7px;
+
+  padding: 14px 14px 12px;
+
+  background: #fff4e2;
+
+  border-top: 2px solid #eca17d;
+
+  box-sizing: border-box;
+}
+
+.counseling-section .support-highlight > strong {
+  color: #31526d;
+
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.counseling-section .support-highlight > small {
+  margin-top: 7px;
+
+  color: #5b6877;
+
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   ORANGE "PROGRAM RANGE" LABEL
+   ========================================================= */
+
+.counseling-section .support-highlight::before {
+  content: "このプログラムが担当する範囲";
+
+  position: absolute;
+
+  top: -30px;
+  left: 0;
+  right: 0;
+
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #e39a76;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+
+  border-top: 2px solid #eca17d;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BLUE ARROW BETWEEN COUNSELING AND COACHING
+   ========================================================= */
+
+.counseling-section .support-arrow {
+  position: absolute;
+
+  left: calc(35px + 25%);
+
+  width: calc(25% - 10.5px);
+
+  top: 182px;
+
+  height: 2px;
+
+  padding: 0;
+
+  color: transparent;
+  font-size: 0;
+
+  border-top: 2px solid #7698d0;
+
+  box-sizing: border-box;
+}
+
+.counseling-section .support-arrow::after {
+  content: "";
+
+  position: absolute;
+
+  right: -2px;
+  top: -7px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 10.5px solid #7698d0;
+}
+
+
+/* =========================================================
+   ORANGE ARROW UNDER COACHING
+   ========================================================= */
+
+.counseling-section .support-highlight::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -30px;
+
+  height: 2px;
+
+  background: #eca17d;
+}
+
+
+/* =========================================================
+   SUPPORT SCALE
+   ========================================================= */
+
+.counseling-section .support-scale {
+  position: absolute;
+
+  left: 35px;
+  right: 35px;
+
+  bottom: 17.5px;
+
+  height: 52.5px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+
+  align-items: end;
+
+  box-sizing: border-box;
+
+  border-top: 2px solid #d3dde7;
+}
+
+
+/* =========================================================
+   SCALE — MINUS
+   ========================================================= */
+
+.counseling-section .support-scale-minus {
+  align-self: end;
+
+  text-align: left;
+}
+
+.counseling-section .support-scale-minus span {
+  display: block;
+
+  color: #4b83a4;
+
+  font-size: 13.5px;
+  line-height: 1.3;
+}
+
+.counseling-section .support-scale-minus small {
+  display: block;
+
+  color: #486e7f;
+
+  font-size: 13.5px;
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   SCALE — ZERO
+   ========================================================= */
+
+.counseling-section .support-scale-zero {
+  align-self: end;
+
+  padding-bottom: 0;
+
+  text-align: center;
+}
+
+.counseling-section .support-scale-zero span {
+  color: #323b4d;
+
+  font-size: 13.5px;
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   SCALE — PLUS
+   ========================================================= */
+
+.counseling-section .support-scale-plus {
+  align-self: end;
+
+  text-align: right;
+}
+
+.counseling-section .support-scale-plus span {
+  display: block;
+
+  color: #dca080;
+
+  font-size: 13.5px;
+  line-height: 1.3;
+}
+
+.counseling-section .support-scale-plus small {
+  display: block;
+
+  color: #486e7f;
+
+  font-size: 13.5px;
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   COMPARISON EXPLANATION
+   ========================================================= */
+
+.counseling-section .comparison-note {
+  width: 100%;
+  max-width: 1050px;
+
+  margin: 44px auto 35px;
+
+  color: #486e7f;
+
+  text-align: center;
+}
+
+.counseling-section .comparison-note p {
+  margin: 0;
+
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.counseling-section .comparison-note p + p {
+  margin-top: 2px;
+}
+
+
+/* =========================================================
+   COMPARISON TABLE
+   ========================================================= */
+
+.counseling-section .comparison-table {
+  width: 100%;
+  max-width: 1120px;
+
+  margin: 0 auto;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  table-layout: fixed;
+
+  background: #ffffff;
+
+  color: #323b4d;
+
+  font-size: 14px;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   TABLE CELLS
+   ========================================================= */
+
+.counseling-section .comparison-table th,
+.counseling-section .comparison-table td {
+  height: 59.5px;
+
+  padding: 12px 17.5px;
+
+  box-sizing: border-box;
+
+  border: 2px solid #d2dce7;
+
+  vertical-align: middle;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.counseling-section .comparison-table thead th {
+  height: 59.5px;
+
+  background: #dfe8f4;
+
+  color: #323b4d;
+
+  font-size: 15.5px;
+  font-weight: 500;
+
+  text-align: center;
+}
+
+.counseling-section .comparison-table thead th:first-child {
+  width: 20%;
+}
+
+.counseling-section .comparison-table thead th:nth-child(2) {
+  width: 40%;
+}
+
+.counseling-section .comparison-table thead th:nth-child(3) {
+  width: 40%;
+
+  background: #fff0d9;
+}
+
+
+/* =========================================================
+   KIMOCHI TABLE HEADER
+   ========================================================= */
+
+.counseling-section .comparison-table thead th:last-child {
+  color: #18a2ac;
+
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+
+  font-size: 26px;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   FIRST COLUMN
+   ========================================================= */
+
+.counseling-section .comparison-table tbody th {
+  width: 20%;
+
+  background: #f8fafc;
+
+  color: #323b4d;
+
+  font-size: 15.5px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   COUNSELING COLUMN
+   ========================================================= */
+
+.counseling-section .comparison-table tbody td:nth-child(2) {
+  background: #ffffff;
+
+  color: #486e7f;
+
+  font-weight: 400;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   KIMOCHI COACHING COLUMN
+   ========================================================= */
+
+.counseling-section .comparison-table tbody td:nth-child(3) {
+  background: #fffaf3;
+
+  color: #323b4d;
+
+  font-weight: 700;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   INFORMATION BOX
+   ========================================================= */
+
+.counseling-section .info-box {
+  width: 100%;
+  max-width: 1120px;
+
+  min-height: 93px;
+
+  margin: 35px auto 0;
+
+  padding: 16px 21px;
+
+  box-sizing: border-box;
+
+  background: #dfe9f5;
+
+  border-radius: 10.5px;
+
+  color: #5c6b7a;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 1.7;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1750px) {
+
+  .counseling-section {
+    padding-top: 84px;
+    padding-bottom: 73.5px;
+  }
+
+  .counseling-section .support-flow,
+  .counseling-section .comparison-table,
+  .counseling-section .info-box {
+    max-width: 1120px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1330px) {
+
+  .counseling-section {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .counseling-section .support-flow {
+    max-width: 1120px;
+  }
+
+  .counseling-section .comparison-table {
+    max-width: 1120px;
+  }
+
+  .counseling-section .info-box {
+    max-width: 1120px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .counseling-section {
+    padding: 73.5px 28px 70px;
+  }
+
+  .counseling-section .section-heading h2 {
+    font-size: 37px;
+  }
+
+  .counseling-section .support-flow {
+    height: 341px;
+
+    padding-left: 24.5px;
+    padding-right: 24.5px;
+  }
+
+  .counseling-section .support-box > strong {
+    font-size: 16px;
+  }
+
+  .counseling-section .support-box > small {
+    font-size: 11.5px;
+  }
+
+  .counseling-section .support-highlight > strong {
+    font-size: 23px;
+  }
+
+  .counseling-section .comparison-note p {
+    font-size: 12px;
+  }
+
+  .counseling-section .comparison-table {
+    font-size: 11.5px;
+  }
+
+  .counseling-section .comparison-table th,
+  .counseling-section .comparison-table td {
+    padding: 10.5px 12px;
+  }
+
+  .counseling-section .comparison-table thead th:last-child {
+    font-size: 23px;
+  }
+
+  .counseling-section .info-box {
+    font-size: 11.5px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+  .counseling-section {
+    padding: 66.5px 21px 66.5px;
+  }
+
+  .counseling-section .section-heading h2 {
+    font-size: 33px;
+  }
+
+  .counseling-section .section-heading > p:last-child {
+    font-size: 12px;
+  }
+
+  .counseling-section .support-flow {
+    height: 359px;
+
+    padding: 61px 16px 75px;
+
+    grid-template-columns: 1fr 1fr;
+    row-gap: 16px;
+  }
+
+  .counseling-section .support-highlight {
+    grid-column: 1 / -1;
+
+    width: 68%;
+
+    margin: 7px auto 0;
+  }
+
+  .counseling-section .support-arrow {
+    display: none;
+  }
+
+  .counseling-section .comparison-note {
+    margin-top: 38.5px;
+  }
+
+  .counseling-section .comparison-note p {
+    font-size: 11.5px;
+  }
+
+  .counseling-section .comparison-table th,
+  .counseling-section .comparison-table td {
+    height: 56px;
+
+    padding: 9px 7px;
+  }
+
+  .counseling-section .comparison-table thead th:last-child {
+    font-size: 19px;
+  }
+
+  .counseling-section .info-box {
+    min-height: 87.5px;
+
+    padding: 14px 16px;
+
+    font-size: 10.5px;
+    line-height: 1.7;
+  }
+
+}
+
+/* =========================================================
+   SECTION 6 — THE 90 DAYS
+   ========================================================= */
+
+.ninety-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 1146px;
+
+  padding: 73.5px 49px 66.5px;
+
+  box-sizing: border-box;
+
+  background: #f2f6fc;
+
+  color: #323b4d;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.ninety-section .section-heading {
+  width: 100%;
+  max-width: 1120px;
+
+  margin: 0 auto 31.5px;
+
+  text-align: center;
+}
+
+.ninety-section .section-label {
+  margin: 0 0 14px;
+
+  color: #18a2ac;
+
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+
+  font-size: 17.5px;
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.04em;
+}
+
+.ninety-section .section-heading h2 {
+  margin: 0;
+
+  color: #323b4d;
+
+  font-size: 41px;
+  font-weight: 500;
+
+  line-height: 1.45;
+
+  letter-spacing: 0.025em;
+}
+
+.ninety-section .section-heading > p:last-child {
+  max-width: 980px;
+
+  margin: 14px auto 0;
+
+  color: #486e7f;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   90-DAY PROGRAM TIMELINE
+   ========================================================= */
+
+.ninety-section .program-timeline {
+  width: 100%;
+  max-width: 1120px;
+
+  height: 98px;
+
+  margin: 0 auto 24.5px;
+
+  display: grid;
+
+  grid-template-columns: 147px minmax(0, 1fr) 147px;
+
+  gap: 10.5px;
+
+  align-items: stretch;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   DAY 0
+   ========================================================= */
+
+.ninety-section .timeline-start {
+  height: 98px;
+
+  padding: 10.5px 9px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #dce7f5;
+
+  border-radius: 5px;
+
+  text-align: center;
+}
+
+.ninety-section .timeline-start span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #4d9fc3;
+
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+
+  font-size: 12.5px;
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+.ninety-section .timeline-start strong {
+  display: block;
+
+  color: #323b4d;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.ninety-section .timeline-start small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #52677a;
+
+  font-size: 12.5px;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   WEEK BLOCK
+   ========================================================= */
+
+.ninety-section .weeks {
+  min-width: 0;
+  height: 98px;
+
+  padding: 31.5px 12px 12px;
+
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+
+  background: #ffffff;
+
+  border-radius: 3.5px;
+
+  overflow: hidden;
+}
+
+.ninety-section .weeks span {
+  min-width: 0;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border: 2px solid #e0e7ef;
+  border-right: none;
+
+  color: #485a6c;
+
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.ninety-section .weeks span:last-child {
+  border-right: 2px solid #e0e7ef;
+}
+
+
+/* =========================================================
+   DAY 90
+   ========================================================= */
+
+.ninety-section .timeline-end {
+  height: 98px;
+
+  padding: 10.5px 9px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #55afd0;
+
+  border-radius: 5px;
+
+  color: #ffffff;
+
+  text-align: center;
+}
+
+.ninety-section .timeline-end span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #ffffff;
+
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+
+  font-size: 12.5px;
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+.ninety-section .timeline-end strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.ninety-section .timeline-end small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #ffffff;
+
+  font-size: 12.5px;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   TIMELINE NOTES
+   ========================================================= */
+
+.ninety-section .timeline-notes {
+  width: 100%;
+  max-width: 1120px;
+
+  margin: 0 auto 33px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.ninety-section .timeline-notes p {
+  min-height: 42px;
+
+  margin: 0;
+
+  padding: 9px 16px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  background: #ffffff;
+
+  border: 2px solid #e1e7ee;
+  border-radius: 5px;
+
+  color: #486e7f;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.45;
+}
+
+.ninety-section .timeline-notes p::first-letter {
+  color: #43acd0;
+}
+
+
+/* =========================================================
+   GRAPH AREA
+   ========================================================= */
+
+/*
+   The reference contains a graph here.
+
+   Per your instruction, the graph is NOT recreated.
+   The existing graph markup is hidden and this entire
+   area is treated as an image placeholder.
+*/
+
+.ninety-section .progress-graph {
+  position: relative;
+
+  width: 100%;
+  max-width: 1120px;
+
+  height: 367.5px;
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: none;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+}
+
+/* Hide the original graph construction */
+
+.ninety-section .progress-graph .graph-y-axis,
+.ninety-section .progress-graph .graph-x-axis,
+.ninety-section .progress-graph .graph-label,
+.ninety-section .progress-graph .graph-line {
+  display: none !important;
+}
+
+
+/* Placeholder */
+
+.ninety-section .progress-graph::after {
+  content: "IMAGE PLACEHOLDER";
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  color: #8c99a7;
+
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   DESCRIPTION UNDER GRAPH
+   ========================================================= */
+
+.ninety-section .ninety-description {
+  width: 100%;
+  max-width: 1067.5px;
+
+  margin: 30px auto 0;
+
+  text-align: center;
+
+  color: #486e7f;
+}
+
+.ninety-section .ninety-description p {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 1.75;
+}
+
+.ninety-section .ninety-description strong {
+  display: block;
+
+  margin: 2px 0;
+
+  color: #536477;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.ninety-section .section-cta {
+  width: 392px;
+  min-height: 79px;
+
+  margin: 30px auto 0;
+
+  padding: 19px 31.5px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #4d7ff1;
+
+  border-radius: 9px;
+
+  box-shadow: 0 5px 12px rgba(60, 95, 180, 0.18);
+
+  color: #ffffff;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  text-align: center;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+}
+
+.ninety-section .section-cta:hover {
+  opacity: 0.92;
+}
+
+.ninety-section .section-cta-wrap {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+}
+
+.ninety-section .section-cta-wrap .section-cta {
+  margin-top: 30px;
+}
+
+.ninety-section .section-cta-note {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  background: #fdf6d3;
+  color: #b8860b;
+
+  font-size: 13.5px;
+  font-weight: 700;
+
+  padding: 7px 17.5px;
+  border-radius: 1748px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1330px) {
+
+  .ninety-section {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .ninety-section .program-timeline,
+  .ninety-section .timeline-notes,
+  .ninety-section .progress-graph {
+    max-width: 1120px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .ninety-section {
+    min-height: auto;
+
+    padding: 66.5px 28px 63px;
+  }
+
+  .ninety-section .section-heading h2 {
+    font-size: 33px;
+  }
+
+  .ninety-section .section-heading > p:last-child {
+    font-size: 11.5px;
+  }
+
+  .ninety-section .program-timeline {
+    grid-template-columns: 119px minmax(0, 1fr) 119px;
+
+    gap: 9px;
+  }
+
+  .ninety-section .timeline-start,
+  .ninety-section .weeks,
+  .ninety-section .timeline-end {
+    height: 94.5px;
+  }
+
+  .ninety-section .weeks {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .ninety-section .weeks span {
+    font-size: 8px;
+  }
+
+  .ninety-section .timeline-notes p {
+    font-size: 9.5px;
+  }
+
+  .ninety-section .progress-graph {
+    height: 350px;
+
+    border-width: 3.5px;
+  }
+
+  .ninety-section .ninety-description p,
+  .ninety-section .ninety-description strong {
+    font-size: 11.5px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 840px) {
+
+  .ninety-section {
+    padding: 59.5px 21px 59.5px;
+  }
+
+  .ninety-section .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .ninety-section .program-timeline {
+    grid-template-columns: 105px minmax(0, 1fr) 105px;
+
+    gap: 7px;
+  }
+
+  .ninety-section .timeline-start,
+  .ninety-section .weeks,
+  .ninety-section .timeline-end {
+    height: 91px;
+  }
+
+  .ninety-section .timeline-start strong,
+  .ninety-section .timeline-end strong {
+    font-size: 12px;
+  }
+
+  .ninety-section .weeks span {
+    font-size: 7px;
+  }
+
+  .ninety-section .timeline-notes p {
+    min-height: 40px;
+
+    padding: 7px 10.5px;
+
+    font-size: 9px;
+  }
+
+  .ninety-section .progress-graph {
+    height: 315px;
+
+    border-radius: 12px;
+  }
+
+  .ninety-section .progress-graph::after {
+    font-size: 14px;
+  }
+
+  .ninety-section .ninety-description p,
+  .ninety-section .ninety-description strong {
+    font-size: 10.5px;
+  }
+
+  .ninety-section .section-cta {
+    width: 359px;
+    min-height: 75px;
+
+    font-size: 17.5px;
+  }
+
+  .ninety-section .section-cta-note {
+    font-size: 10.5px;
+    padding: 5px 14px;
+  }
+
+}
+
+/* =========================================================
+   SECTION 7 — WHAT MAKES IT WORK
+   ========================================================= */
+
+.work-section {
+  width: 100%;
+  padding: 80.5px 49px 87.5px;
+  background: #ffffff;
+}
+
+.work-section .section-heading {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto 38.5px;
+  text-align: center;
+}
+
+.work-section .section-label {
+  margin: 0 0 16px;
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.work-section .section-heading h2 {
+  margin: 0;
+  color: #323b4d;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+.work-section .three-reasons {
+  width: 100%;
+  max-width: 1575px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px;
+}
+
+.work-section .reason-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-section .reason-image {
+  width: 100%;
+  height: 206.5px;
+  border-radius: 14px;
+  margin-bottom: 21px;
+}
+
+.work-section .reason-label {
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 17.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 7px;
+}
+
+.work-section .reason-card h3 {
+  color: #323b4d;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.work-section .reason-card p {
+  color: #486e7f;
+  font-size: 16.5px;
+  line-height: 1.75;
+  margin-bottom: 21px;
+}
+
+.work-section .reason-card small {
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+  background: #eef2f6;
+  color: #486e7f;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10.5px 21px;
+  border-radius: 9px;
+}
+
+@media (max-width: 805px) {
+  .work-section .three-reasons {
+    grid-template-columns: 1fr;
+    max-width: 735px;
+    gap: 45.5px;
+  }
+  .work-section .reason-image {
+    height: 280px;
+  }
+}
+
+/* =========================================================
+   SECTION 8 — HOW WE MEASURE
+   ========================================================= */
+
+.measure-section {
+  width: 100%;
+  padding: 80.5px 49px 91px;
+  background: #eef4fb;
+}
+
+.measure-section .section-heading {
+  width: 100%;
+  max-width: 1085px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.measure-section .section-label {
+  margin: 0 0 16px;
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.measure-section .section-heading h2 {
+  margin: 0;
+  color: #323b4d;
+  font-size: 41px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.measure-section .section-heading > p:last-child {
+  margin: 16px auto 0;
+  color: #486e7f;
+  font-size: 16.5px;
+  line-height: 1.8;
+}
+
+/* ---- measurement scale ---- */
+
+.measure-section .measurement-scale {
+  width: 100%;
+  max-width: 1575px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.measure-section .measurement-scale > div {
+  min-width: 0;
+  padding: 21px 14px;
+  background: #e3eaf2;
+  text-align: center;
+}
+
+.measure-section .measurement-scale > div:nth-child(3) {
+  background: #ffffff;
+  box-shadow: 0 10.5px 28px rgba(30, 50, 80, 0.08);
+}
+
+.measure-section .measurement-scale > div.positive {
+  background: #fff8ef;
+}
+
+.measure-section .measurement-scale strong {
+  display: block;
+  color: #323b4d;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 9px;
+}
+
+.measure-section .measurement-scale > div:nth-child(3) strong {
+  font-size: 30px;
+}
+
+.measure-section .measurement-scale > div.positive strong {
+  color: #d98a54;
+}
+
+.measure-section .measurement-scale span {
+  display: block;
+  color: #486e7f;
+  font-size: 15.5px;
+  line-height: 1.4;
+}
+
+/* ---- arrow + caption ---- */
+
+.measure-section .measurement-arrow {
+  position: relative;
+  width: 100%;
+  max-width: 1575px;
+  margin: 28px auto 0;
+  padding-top: 21px;
+
+  color: #486e7f;
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.measure-section .measurement-arrow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, #8fa9d0, #e3a878);
+}
+
+.measure-section .measurement-arrow::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 9px solid #e3a878;
+}
+
+/* ---- measure content (image + text) ---- */
+
+.measure-section .measure-content {
+  width: 100%;
+  max-width: 1575px;
+  margin: 38.5px auto 0;
+
+  display: grid;
+  grid-template-columns: 411px minmax(0, 1fr);
+  gap: 42px;
+  align-items: start;
+}
+
+.measure-section .measure-image {
+  width: 100%;
+  height: 499px;
+  border-radius: 17.5px;
+}
+
+.measure-section .measure-text h3 {
+  color: #323b4d;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 17.5px;
+}
+
+.measure-section .measure-text p {
+  color: #486e7f;
+  font-size: 16.5px;
+  line-height: 1.85;
+  margin-bottom: 21px;
+}
+
+.measure-section .measure-text ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.measure-section .measure-text li {
+  position: relative;
+  padding-left: 28px;
+  color: #486e7f;
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
+.measure-section .measure-text li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #18a2ac;
+  font-size: 17.5px;
+  font-weight: 700;
+}
+
+@media (max-width: 735px) {
+  .measure-section .measurement-scale {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 7px;
+  }
+  .measure-section .measure-content {
+    grid-template-columns: 1fr;
+  }
+  .measure-section .measure-image {
+    height: 350px;
+  }
+}
+
+/* =========================================================
+   SECTION 9 — YOUR COACH
+   ========================================================= */
+
+.coach-section {
+  width: 100%;
+  padding: 80.5px 49px 87.5px;
+  background: #ffffff;
+}
+
+.coach-section .section-heading {
+  width: 100%;
+  max-width: 1085px;
+  margin: 0 auto 38.5px;
+  text-align: center;
+}
+
+.coach-section .section-label {
+  margin: 0 0 16px;
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.coach-section .section-heading h2 {
+  margin: 0;
+  color: #323b4d;
+  font-size: 41px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.coach-section .section-heading > p:last-child {
+  margin: 16px auto 0;
+  color: #486e7f;
+  font-size: 16.5px;
+  line-height: 1.8;
+}
+
+.coach-section .coach-grid {
+  width: 100%;
+  max-width: 1575px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 31.5px;
+}
+
+.coach-section .coach-card {
+  min-width: 0;
+  background: #ffffff;
+  border: 2px solid #e3e8ee;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.coach-section .coach-image {
+  width: 100%;
+  height: 227.5px;
+}
+
+.coach-section .coach-content {
+  padding: 21px 24.5px 24.5px;
+}
+
+.coach-section .coach-content > span {
+  display: block;
+  color: #18a2ac;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.coach-section .coach-content h3 {
+  color: #323b4d;
+  font-size: 23px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.coach-section .coach-content p {
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.coach-section .coach-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 14px;
+  color: #18a2ac;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.coach-section .coach-bottom {
+  width: 100%;
+  max-width: 1120px;
+  margin: 42px auto 0;
+  text-align: center;
+}
+
+.coach-section .coach-bottom strong {
+  display: inline;
+  color: #323b4d;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 2;
+  background: linear-gradient(to bottom, transparent 62%, #fce3b0 62%);
+  padding: 0 3.5px;
+}
+
+.coach-section .coach-bottom p {
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+@media (max-width: 805px) {
+  .coach-section .coach-grid {
+    grid-template-columns: 1fr;
+    max-width: 665px;
+  }
+  .coach-section .coach-image {
+    height: 297.5px;
+  }
+}
+
+/* =========================================================
+   SECTION 10 — COMPARE
+   ========================================================= */
+
+.compare-section {
+  width: 100%;
+  padding: 80.5px 49px 87.5px;
+  background: #eef4fb;
+}
+
+.compare-section .section-heading {
+  width: 100%;
+  max-width: 1085px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.compare-section .section-label {
+  margin: 0 0 16px;
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.compare-section .section-heading h2 {
+  margin: 0;
+  color: #323b4d;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.compare-section .section-heading > p:last-child {
+  margin: 16px auto 0;
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ---- SEEN / UNSEEN cards ---- */
+
+.compare-section .compare-cards {
+  width: 100%;
+  max-width: 1575px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 31.5px;
+}
+
+.compare-section .compare-card {
+  min-width: 0;
+  padding: 28px 28px 31.5px;
+  background: #ffffff;
+  border-radius: 17.5px;
+  box-shadow: 0 17.5px 45.5px rgba(30, 50, 80, 0.06);
+  text-align: center;
+}
+
+.compare-section .compare-card h3 {
+  margin-bottom: 21px;
+  color: #323b4d;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.compare-section .compare-card h3 span {
+  color: #e3a878;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-right: 10.5px;
+}
+
+.compare-section .compare-cards .compare-card:last-child h3 span {
+  color: #18a2ac;
+}
+
+.compare-section .compare-image {
+  width: 100%;
+  height: 210px;
+  border-radius: 17.5px;
+  margin-bottom: -45.5px;
+  background: linear-gradient(135deg, #fdf5eb, #fbeee0);
+  color: #d8a97a;
+}
+
+.compare-section .compare-cards .compare-card:last-child .compare-image {
+  background: linear-gradient(135deg, #eaf2fb, #dfeaf7);
+  color: #7ea7cc;
+}
+
+.compare-section .compare-icons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 21px;
+  margin-bottom: 24.5px;
+}
+
+.compare-section .compare-icons span {
+  width: 98px;
+  height: 98px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fdf5eb;
+  border: 2px solid #fff;
+  box-shadow: 0 10.5px 24.5px rgba(200, 150, 90, 0.18);
+  color: #c98a4e;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.compare-section .compare-cards .compare-card:last-child .compare-icons span {
+  background: #18a2ac;
+  color: #ffffff;
+  box-shadow: 0 10.5px 24.5px rgba(79, 168, 216, 0.28);
+}
+
+.compare-section .compare-card > p {
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.compare-section .compare-card strong {
+  display: block;
+  color: #486e7f;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 7px;
+}
+
+/* ---- intro statement ---- */
+
+.compare-section .compare-table-intro {
+  width: 100%;
+  max-width: 1085px;
+  margin: 35px auto 0;
+  text-align: center;
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.compare-section .compare-table-intro strong {
+  display: inline;
+  color: #323b4d;
+  font-weight: 700;
+  background: linear-gradient(to bottom, transparent 62%, #cfe0f5 62%);
+  padding: 0 3.5px;
+}
+
+/* ---- comparison table (extends the shared .comparison-table look) ---- */
+
+.compare-section .comparison-table {
+  width: 100%;
+  max-width: 1575px;
+  margin: 31.5px auto 0;
+
+  border-collapse: collapse;
+  background: #ffffff;
+  color: #323b4d;
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.compare-section .comparison-table th,
+.compare-section .comparison-table td {
+  padding: 14px 17.5px;
+  border: 2px solid #d2dce7;
+  vertical-align: middle;
+}
+
+.compare-section .comparison-table thead th {
+  background: #dfe8f4;
+  color: #323b4d;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.compare-section .comparison-table thead th:first-child {
+  width: 18%;
+}
+
+.compare-section .comparison-table thead th:nth-child(3) {
+  background: #fff0d9;
+}
+
+.compare-section .comparison-table thead th:last-child {
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.compare-section .comparison-table tbody th {
+  width: 18%;
+  background: #f8fafc;
+  color: #323b4d;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.compare-section .comparison-table tbody td:nth-child(2) {
+  background: #ffffff;
+  color: #486e7f;
+  text-align: left;
+}
+
+.compare-section .comparison-table tbody td:nth-child(3) {
+  background: #fffaf3;
+  color: #323b4d;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* ---- price summary strip ---- */
+
+.compare-section .price-summary {
+  width: 100%;
+  max-width: 1575px;
+  margin: 31.5px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17.5px;
+}
+
+.compare-section .price-summary > div {
+  min-width: 0;
+  padding: 21px 17.5px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 14px 35px rgba(30, 50, 80, 0.05);
+  text-align: center;
+}
+
+.compare-section .price-summary span {
+  display: block;
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 9px;
+}
+
+.compare-section .price-summary strong {
+  display: block;
+  color: #323b4d;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+@media (max-width: 805px) {
+  .compare-section .compare-cards {
+    grid-template-columns: 1fr;
+    max-width: 665px;
+    gap: 70px;
+  }
+  .compare-section .price-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1085px) {
+  .compare-section .comparison-table {
+    font-size: 12px;
+  }
+  .compare-section .comparison-table th,
+  .compare-section .comparison-table td {
+    padding: 10.5px 10.5px;
+  }
+  .compare-section .comparison-table thead th:last-child {
+    font-size: 19px;
+  }
+}
+
+/* =========================================================
+   SECTION 11 — PRICE
+   ========================================================= */
+
+.price-section {
+  width: 100%;
+  padding: 80.5px 49px 87.5px;
+  background: #ffffff;
+}
+
+.price-section .section-heading {
+  width: 100%;
+  max-width: 1085px;
+  margin: 0 auto 38.5px;
+  text-align: center;
+}
+
+.price-section .section-label {
+  margin: 0 0 16px;
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.price-section .section-heading h2 {
+  margin: 0;
+  color: #323b4d;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.price-section .section-heading > p:last-child {
+  margin: 16px auto 0;
+  color: #486e7f;
+  font-size: 16.5px;
+  line-height: 1.8;
+}
+
+.price-section .price-layout {
+  width: 100%;
+  max-width: 1575px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 31.5px;
+  align-items: start;
+}
+
+/* ---- price card (left) ---- */
+
+.price-section .price-card {
+  min-width: 0;
+  background: #ffffff;
+  border: 2px solid #e3e8ee;
+  border-radius: 17.5px;
+  overflow: hidden;
+  box-shadow: 0 17.5px 45.5px rgba(30, 50, 80, 0.06);
+}
+
+.price-section .price-card-header {
+  padding: 24.5px 31.5px;
+  background: #002f57;
+}
+
+.price-section .price-card-header small {
+  display: block;
+  color: #9fc3e0;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 15.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 9px;
+}
+
+.price-section .price-card-header strong {
+  display: block;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.price-section .price-body {
+  padding: 28px 31.5px 31.5px;
+}
+
+.price-section .regular-price {
+  color: #486e7f;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.price-section .regular-price s {
+  margin-left: 7px;
+}
+
+.price-section .discount-price {
+  color: #486e7f;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.price-section .main-price {
+  color: #002f57;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 49px;
+  font-weight: 700;
+  margin-bottom: 17.5px;
+}
+
+.price-section .main-price span {
+  font-size: 21px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.price-section .price-badge {
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+  background: #fbe4c8;
+  color: #a9622a;
+  font-size: 17.5px;
+  font-weight: 700;
+  padding: 12px 24.5px;
+  border-radius: 9px;
+  margin-bottom: 17.5px;
+}
+
+.price-section .daily-price {
+  color: #486e7f;
+  font-size: 16.5px;
+  margin-bottom: 17.5px;
+}
+
+.price-section .price-body > small {
+  display: block;
+  color: #486e7f;
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+/* ---- price side (right) ---- */
+
+.price-section .price-side {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24.5px;
+}
+
+.price-section .included-box {
+  background: #ffffff;
+  border: 2px solid #e3e8ee;
+  border-radius: 17.5px;
+  padding: 28px 31.5px;
+}
+
+.price-section .included-box h3 {
+  color: #323b4d;
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 17.5px;
+}
+
+.price-section .included-box li {
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.price-section .condition-box {
+  background: #f7f9fd;
+  border-radius: 17.5px;
+  padding: 28px 31.5px;
+}
+
+.price-section .condition-box h3 {
+  color: #323b4d;
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.price-section .condition-box p {
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.price-section .price-notes {
+  width: 100%;
+  max-width: 1575px;
+  margin: 31.5px auto 0;
+  color: #486e7f;
+  font-size: 15.5px;
+  line-height: 1.8;
+}
+
+@media (max-width: 770px) {
+  .price-section .price-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   SECTION 12 — GETTING STARTED
+   ========================================================= */
+
+.getting-started {
+  width: 100%;
+  padding: 80.5px 49px 87.5px;
+  background: #eef4fb;
+}
+
+.getting-started .section-heading {
+  width: 100%;
+  max-width: 1085px;
+  margin: 0 auto 38.5px;
+  text-align: center;
+}
+
+.getting-started .section-label {
+  margin: 0 0 16px;
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.getting-started .section-heading h2 {
+  margin: 0;
+  color: #323b4d;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.getting-started .steps {
+  width: 100%;
+  max-width: 1575px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24.5px;
+}
+
+.getting-started .step-card {
+  min-width: 0;
+  padding: 24.5px 24.5px 28px;
+  background: #ffffff;
+  border-left: 3.5px solid #4d9fe0;
+  border-radius: 0 10.5px 10.5px 0;
+  box-shadow: 0 14px 35px rgba(30, 50, 80, 0.05);
+}
+
+.getting-started .step-number {
+  display: block;
+  color: #4d9fe0;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 10.5px;
+}
+
+.getting-started .step-card h3 {
+  color: #323b4d;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.getting-started .step-card p {
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 17.5px;
+}
+
+.getting-started .step-card small {
+  display: block;
+  color: #486e7f;
+  font-size: 15px;
+}
+
+@media (max-width: 805px) {
+  .getting-started .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .getting-started .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   SECTION 13 — FAQ
+   ========================================================= */
+
+.faq-section {
+  width: 100%;
+  padding: 80.5px 49px 91px;
+  background: #f4f7fc;
+}
+
+.faq-section .section-heading {
+  width: 100%;
+  max-width: 1085px;
+  margin: 0 auto 38.5px;
+  text-align: center;
+}
+
+.faq-section .section-label {
+  margin: 0 0 16px;
+  color: #18a2ac;
+  font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.faq-section .section-heading h2 {
+  margin: 0;
+  color: #323b4d;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.faq-section .faq-list {
+  width: 100%;
+  max-width: 1225px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 17.5px;
+}
+
+.faq-section .faq-item {
+  background: #ffffff;
+  border: 2px solid #e3e8ee;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.faq-section .faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10.5px;
+  padding: 24.5px 28px;
+  color: #323b4d;
+  font-size: 18.5px;
+  font-weight: 700;
+}
+
+.faq-section .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-section .faq-item summary > span:first-child {
+  color: #18a2ac;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.faq-section .faq-arrow {
+  margin-left: auto;
+  color: #486e7f;
+  font-size: 17.5px;
+  flex-shrink: 0;
+}
+
+.faq-section .faq-answer {
+  padding: 0 28px 28px 28px;
+  border-top: 2px solid #eef1f5;
+  margin-top: -3.5px;
+  padding-top: 21px;
+
+  display: flex;
+  gap: 10.5px;
+}
+
+.faq-section .faq-answer strong {
+  flex-shrink: 0;
+  color: #18a2ac;
+  font-size: 16.5px;
+  font-weight: 700;
+}
+
+.faq-section .faq-answer p {
+  color: #486e7f;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.final-cta {
+  position: relative;
+  width: 100%;
+  padding: 64px 48px 72px;
+  overflow: hidden;
+  background: #1e3a4c;
+}
+
+.final-cta-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(20, 45, 65, 0.55), rgba(20, 45, 65, 0.8)),
+    linear-gradient(135deg, #4fa0c9, #2c6f95);
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.final-cta-background span {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.final-cta-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.final-cta-overlay h2 {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+.final-cta-overlay > p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 15.5px;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.final-price {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto 30px;
+  padding: 16px 26px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+
+  color: #eef4fb;
+  font-size: 15.5px;
+  font-weight: 500;
+}
+
+.final-price strong {
+  color: #7fc4f0;
+  font-size: 15.5px;
+  font-weight: 700;
+}
+
+.final-cta-btn-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.final-small-label {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  width: max-content;
+  max-width: 100%;
+  padding: 10px 22px;
+
+  background: #fdf6d3;
+  color: #b8860b;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.final-cta .final-button {
+  position: relative;
+  z-index: 1;
+  width: 340px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 28px;
+
+  background: #4d7ff1;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(20, 40, 80, 0.35);
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.final-cta-overlay > small {
+  display: block;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13.5px;
+}
+
+@media (max-width: 620px) {
+  .final-cta {
+    padding: 50px 28px 60px;
+  }
+  .final-cta-overlay {
+    max-width: 620px;
+  }
+  .final-cta-overlay h2 {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+  .final-cta-overlay > p {
+    font-size: 9.5px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+  .final-price {
+    gap: 6px;
+    margin: 0 auto 22px;
+    padding: 10px 18px;
+    font-size: 9.5px;
+  }
+  .final-price strong {
+    font-size: 10.5px;
+  }
+  .final-cta-btn-wrap {
+    padding-top: 12px;
+  }
+  .final-small-label {
+    padding: 7px 16px;
+    font-size: 8.5px;
+  }
+  .final-cta .final-button {
+    width: 260px;
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+  .final-cta-overlay > small {
+    margin-top: 12px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .final-cta-overlay h2 {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 48px 48px 44px;
+  background: #273e4e;
+  border-radius: 24px 24px 0 0;
+  margin-top: -24px;
+}
+
+.footer-inner {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 28px;
+}
+
+.footer-logo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+}
+
+.footer-logo span:first-child {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  color: #ffffff;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.footer-logo span:last-child {
+  color: #b7c2cb;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.footer-logo small {
+  flex-basis: 100%;
+  color: #7c8b96;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+}
+
+.footer-nav a {
+  color: #c3ccd3;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.footer-description p {
+  color: #93a0aa;
+  font-size: 13.5px;
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+
+.footer-description p:last-child {
+  color: #6f7d87;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 620px) {
+  .site-footer {
+    padding: 28px 28px 26px;
+  }
+  .footer-top {
+    gap: 14px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  .footer-logo span:first-child {
+    font-size: 17px;
+  }
+  .footer-logo span:last-child {
+    font-size: 10px;
+  }
+  .footer-logo small {
+    font-size: 7.5px;
+  }
+  .footer-nav {
+    gap: 14px 20px;
+  }
+  .footer-nav a {
+    font-size: 9px;
+  }
+  .footer-description p {
+    font-size: 8px;
+    margin-bottom: 8px;
+  }
+  .footer-description p:last-child {
+    font-size: 8px;
+  }
+}
