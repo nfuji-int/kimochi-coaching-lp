@@ -3904,6 +3904,7 @@ img {
 
 .work-section .reason-card small {
   display: inline-block;
+  align-self: flex-start;
   width: max-content;
   max-width: 100%;
   margin-top: auto;
@@ -3923,6 +3924,11 @@ img {
   }
   .work-section .reason-image {
     height: 280px;
+  }
+  .work-section .reason-card small {
+    align-self: flex-start;
+    margin-left: 24px;
+    text-align: left;
   }
 }
 
@@ -4723,6 +4729,16 @@ img {
    equal, true circles, and force a clean two-line break for that
    one label via the mobile-only <br>. */
 @media (max-width: 620px) {
+  /* The illustration inside .compare-image uses background-size:
+     contain, sized for the wider desktop card. On the narrow
+     mobile card the same illustration scales down to fit the
+     width, leaving a lot of empty gradient-colored space above
+     and below it. Shrink the box to match its actual proportions
+     at this width instead. */
+  .compare-section .compare-image {
+    height: 150px;
+  }
+
   .compare-section .compare-icons {
     gap: 12px;
   }
